@@ -17,8 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: darkblue;
-    border: 1px groove black;
+    background-color:#020252;
+    border: 1px solid black;
     border-radius: 50%;
     visibility: hidden;
     z-index: 100;
@@ -593,4 +593,5 @@ iframe {
     .footer .footer-details {
         width: 100%;
     }
+
 }
