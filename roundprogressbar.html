@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Progress Bar</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-content: center;
+            background-color: cornflowerblue;
+        }
+        .container
+        {
+            width:30%;
+            height:auto;
+            padding:1rem;
+            background-color:white;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+           .container h4,span{
+            z-index: 100;
+            color:white;
+            font-size:2rem;
+            font-weight: bolder;
+           }
+        .round-progress{
+            height:170px;
+            width:170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:50%;
+            background-image:conic-gradient(red  3.6deg,white  0deg);
+            position: relative;
+            z-index: 140;
+        }
+        .round-progress::before{
+            content:"";
+            width:150px;
+            height:150px;
+            background-color:black;
+            position: absolute;
+            border-radius: 50%; 
+            color:white; 
+            z-index: 100;    
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="round-progress"> 
+            <h4></h4>
+            </div>
+            <br>
+            <h2>Html</h2>      
+    </div>
+    <script>
+        let roundProgress = document.querySelector(".round-progress")
+        let Result = document.querySelector("h4")
+        let startValue = 0,endValue = 85;
+         const clearInter = setInterval(function(){
+           startValue++;
+            Result.innerHTML = startValue+"%";
+             roundProgress.style.backgroundImage =`conic-gradient(red  ${startValue*3.6}deg, white ${startValue*3.6}deg)`;
+            if(startValue == endValue){
+                clearInterval(clearInter)
+               
+            }
+             
+        },100)
+    </script>
+</body>
+</html>
